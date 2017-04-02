@@ -1,0 +1,183 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
+\usepackage{lipsum} %This package just generates Lorem Ipsum filler text. 
+\usepackage{fullpage} % changes the margin
+\usepackage{hyperref}
+\usepackage{xcolor}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+
+
+
+\usepackage{calc}
+
+\makeatletter
+\newcommand{\DESCRIPTION@original@item}{}
+\let\DESCRIPTION@original@item\item
+\newcommand*{\DESCRIPTION@envir}{DESCRIPTION}
+\newlength{\DESCRIPTION@totalleftmargin}
+\newlength{\DESCRIPTION@linewidth}
+\newcommand{\DESCRIPTION@makelabel}[1]{\llap{#1}}%
+\newcommand{\DESCRIPTION@item}[1][]{%
+  \setlength{\@totalleftmargin}%
+       {\DESCRIPTION@totalleftmargin+\widthof{\textbf{#1 }}-\leftmargin}%
+  \setlength{\linewidth}
+       {\DESCRIPTION@linewidth-\widthof{\textbf{#1 }}+\leftmargin}%
+  \par\parshape \@ne \@totalleftmargin \linewidth
+  \DESCRIPTION@original@item[\textbf{#1}]%
+}
+\newenvironment{DESCRIPTION}
+  {\list{}{\setlength{\labelwidth}{0cm}%
+           \let\makelabel\DESCRIPTION@makelabel}%
+   \setlength{\DESCRIPTION@totalleftmargin}{\@totalleftmargin}%
+   \setlength{\DESCRIPTION@linewidth}{\linewidth}%
+   \renewcommand{\item}{\ifx\@currenvir\DESCRIPTION@envir
+                           \expandafter\DESCRIPTION@item
+                        \else
+                           \expandafter\DESCRIPTION@original@item
+                        \fi}}
+  {\endlist}
+\makeatother
+
+
+
+
+
+
+
+
+\begin{document}
+% \pagenumbering{gobble}
+
+\noindent
+\large\textbf{Supervised Practice of Teaching and Research in Astronomy}\\
+\normalsize AST732 -- Doctoral Program in Astronomy \\
+\today
+
+\vskip3em
+
+\noindent
+{\huge \bf My Name}\\
+Institute of Astrophysics and Space Sciences\\
+Faculty of Sciences, University of Porto
+
+\vskip3em
+
+% Publications:
+% [100] Article in  an  international   journal,    first   author  or  maximum of  3   co-authors
+% [060] Article in  an  international   journal,    with    more    than    3   co-authors
+% [030] Article in  international   proceedings as  first   author
+% [020] Article in  proceedings 
+
+% Communications:
+% [040] Oral    presentation    at  an  international   conference
+% [020] Poster  at  an  international   conference
+% [030] Seminar or  an  oral    contribution    in  a   national    conference
+% [020] Outreach    presentation
+
+% Other activities:
+% [030] Participation   in  an  international   school  or  conference
+% [030] Collaboration   in  the organization    of  conferences/workshops
+% [???]Other    relevant    items,  not explicitly  included    in  the list,   may be  considered.
+%    The    number  of  points  to  be  given   will    be  decided by  the evaluation  panel.
+
+
+
+
+\section*{Publications}
+
+    \noindent My contributions to each paper are listed using the CRediT taxonomy 
+    (\href{http://casrai.org/credit}{http://casrai.org/credit}).
+    \begin{itemize}
+        \item[100] \textbf{Last, First Name}, Second Author, Third Author, et al. 
+                 \emph{Title of the paper}
+                 JOURNAL (YEAR).\\[-1.2em]
+                 {\small
+                 \begin{DESCRIPTION}
+                    \item[contribution:] Software; Validation; Formal Analysis; Writing - Original Draft Preparation; Writing - Review \& Editing;
+                \end{DESCRIPTION}
+                }
+        %
+        \item[100] \textbf{Last, First Name}, Second Author, Third Author, et al. 
+                 \emph{Title of the paper}
+                 JOURNAL (YEAR).\\[-1.2em]
+                 {\small
+                 \begin{DESCRIPTION}
+                    \item[contribution:] Software; Validation; Formal Analysis; Writing - Original Draft Preparation; Writing - Review \& Editing;
+                \end{DESCRIPTION}
+                }
+        %
+        \item[60] First Author, \textbf{Last, First Name}, et al. 
+                    \emph{}
+                    \emph{Title of the paper}
+                    JOURNAL (YEAR).\\[-1.2em]
+                    {\small
+                    \begin{DESCRIPTION}
+                        \item[contribution:] Validation; Writing - Review \& Editing;
+                    \end{DESCRIPTION}
+                    }
+
+    \end{itemize}
+
+\vskip2em
+\section*{Communications}
+
+    \begin{itemize}
+        \item[20] \textbf{TITLE OF THE POSTER}\\
+                  %
+                  poster
+                  -- Conference, Date, City, Country
+        %
+        \item[30] \textbf{Highlights from the Astro Hack Week}\\
+                  %
+                  Cookie seminar, Porto, 14 Oct, 2015
+        %
+        \item[-] \textbf{Other Activity:} TITLE\\
+                DESCRIPTION, DATE.
+        %
+        \item[40] \textbf{TITLE OF THE TALK}\\
+                  %
+                  contributed talk ~[\href{link}{online pdf?}]
+                  -- Conference, Date, City, Country
+        %
+    \end{itemize}
+
+\vskip2em
+\section*{Other activities}
+
+    \begin{itemize}
+        \item[-] \textbf{WHAT} \emph{TITLE} \\
+    \end{itemize}
+
+    \subsubsection*{Participation in conferences}
+        \begin{itemize}
+            \item[30] Conference, Date, City, Country
+        \end{itemize}
+
+
+
+\vfill
+\subsection*{Balance}
+Not counting other relevant items to be considered by the evaluation panel.
+
+\begin{itemize}
+    \item X articles in an international journal, first author (X $\times$ 100\,pt) \\[-1.8em]
+    \item X articles in an international journal, with more than 3 co-authors (7 $\times$ 60\,pt) \\[-1.8em]
+    \item X article in proceedings (X $\times$ 20\,pt) \\[-1.8em]
+    \item X oral presentations at an international conference (X $\times$ 40\,pt)  \\[-1.8em]
+    \item X oral presentations at a national conference (X $\times$ 30\,pt)  \\[-1.8em]
+    \item X seminars (X $\times$ 30\,pt)  \\[-1.8em]
+    \item X posters at an international conference (X $\times$ 20\,pt)  \\[-1.8em]
+    \item Collaboration in the organization of workshops (advanced courses) (X $\times$ 30\,pt)  \\[-1.8em]
+    % \item 1 IA advanced course (?\,pt)  \\[-1.8em]
+    \item X participations in international conferences (X $\times$ 30pt)  %\\[-1.8em]
+    \item[] \hfill Total number of points: PPP \,pt.
+\end{itemize}
+
+
+\end{document}
